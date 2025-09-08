@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confeitaria Lucrativa - Transforme R$ 9,90 em até R$ 4.000/mês trabalhando de casa!</title>
+    <meta name="description" content="Aprenda receitas secretas de confeitaria que faturam até R$ 15.000 por mês. Método validado por +5.000 alunas. Garantia de 7 dias ou seu dinheiro de volta!">
+    
+    <!-- Open Graph tags for social media -->
+    <meta property="og:title" content="Confeitaria Lucrativa - Transforme R$ 9,90 em até R$ 4.000/mês">
+    <meta property="og:description" content="O único método que ensina receitas secretas de confeitaria que faturam até R$ 15.000 por mês mesmo para iniciantes!">
+    <meta property="og:type" content="website">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Sticky CTA Button -->
+    <div id="sticky-cta" class="fixed bottom-4 left-4 right-4 z-50 md:hidden" style="display: none;">
+        <button onclick="scrollToOffer()" class="block w-full bg-gradient-to-r from-primary to-secondary text-white font-bold py-4 px-6 rounded-full text-center shadow-2xl animate-pulse-fast" data-testid="sticky-cta">
+            <i data-lucide="shopping-cart" class="inline mr-2" style="width: 20px; height: 20px;"></i>
+            QUERO FATURAR AGORA!
+        </button>
+    </div>
+
+    <!-- Purchase Notification -->
+    <div id="purchase-notification" class="fixed bottom-6 left-6 z-50 transition-all duration-500 transform translate-y-full opacity-0" data-testid="purchase-notification" style="display: none;">
+        <div class="bg-white border border-gray-200 rounded-2xl shadow-2xl p-4 max-w-sm backdrop-blur-sm">
+            <div class="flex items-center space-x-3">
+                <div class="flex-shrink-0">
+                    <div class="bg-green-100 p-2 rounded-full">
+                        <i data-lucide="check-circle-2" class="w-5 h-5 text-green-600"></i>
+                    </div>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <div class="flex items-center space-x-1 mb-1">
+                        <i data-lucide="shopping-bag" class="w-4 h-4 text-primary"></i>
+                        <p class="text-sm font-semibold text-gray-900">Compra realizada!</p>
+                    </div>
+                    <p class="text-sm text-gray-600">
+                        <span class="font-medium" id="notification-name">Maria S.</span> de 
+                        <span class="text-gray-500" id="notification-location">São Paulo, SP</span>
+                    </p>
+                    <p class="text-xs text-gray-400">há <span id="notification-time">3 min</span></p>
+                </div>
+            </div>
+            <div class="mt-2 pt-2 border-t border-gray-100">
+                <p class="text-xs text-center text-gray-500">🎉 Confeitaria Lucrativa - R$ 9,90</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg min-h-screen flex items-center justify-center relative overflow-hidden animate-gradient">
+        <!-- Enhanced floating elements -->
+        <div class="absolute inset-0 opacity-20">
+            <div class="absolute top-10 left-10 w-20 h-20 bg-white rounded-full floating">💰</div>
+            <div class="absolute top-32 right-8 w-16 h-16 bg-white rounded-full floating text-2xl flex items-center justify-center" style="animation-delay: 1s;">🧁</div>
+            <div class="absolute bottom-20 left-16 w-12 h-12 bg-white rounded-full floating text-lg flex items-center justify-center" style="animation-delay: 2s;">⭐</div>
+            <div class="absolute top-1/2 right-20 w-14 h-14 bg-white rounded-full floating text-xl flex items-center justify-center" style="animation-delay: 3s;">🎯</div>
+            <div class="absolute bottom-32 right-10 w-18 h-18 bg-white rounded-full floating text-2xl flex items-center justify-center" style="animation-delay: 4s;">💎</div>
+        </div>
+        
+        <div class="container mx-auto px-4 py-8 text-center relative z-10">
+            <div class="animate-fadeIn">
+                <div class="mb-6">
+                    <div class="inline-flex items-center bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full text-white font-bold mb-6 animate-bounceIn">
+                        <i data-lucide="sparkles" class="mr-2 text-accent" style="width: 20px; height: 20px;"></i>
+                        <span class="text-sm md:text-base">🔥 MÉTODO VALIDADO POR +5.000 ALUNAS</span>
+                        <i data-lucide="sparkles" class="ml-2 text-accent" style="width: 20px; height: 20px;"></i>
+                    </div>
+                </div>
+                
+                <h1 class="text-4xl md:text-6xl lg:text-8xl font-black text-white mb-8 leading-tight animate-fadeIn text-shadow-strong">
+                    TRANSFORME
+                    <span class="text-accent drop-shadow-2xl glow"> R$ 9,90</span><br/>
+                    EM ATÉ<br/>
+                    <span class="gradient-text animate-gradient">R$ 4.000/MÊS</span><br/>
+                    <span class="text-3xl md:text-4xl lg:text-5xl text-accent">TRABALHANDO DE CASA! 🏠</span>
+                </h1>
+                
+                <p class="text-xl md:text-3xl text-white/95 mb-8 max-w-4xl mx-auto font-bold leading-relaxed animate-slideUp text-shadow-strong">
+                    🎯 O <span class="text-accent underline decoration-wavy">ÚNICO MÉTODO</span> que ensina
+                    <strong class="text-accent bg-white/20 px-2 py-1 rounded"> receitas secretas de confeitaria</strong> que 
+                    <strong class="text-yellow-300">faturam até R$ 15.000 por mês</strong> mesmo para iniciantes!
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 justify-center items-center mb-12 max-w-4xl mx-auto">
+                    <div class="flex items-center text-white bg-white/20 px-6 py-4 rounded-2xl backdrop-blur-sm border border-white/30 scale-hover">
+                        <i data-lucide="star" class="text-accent mr-3 animate-pulse" style="width: 24px; height: 24px;"></i>
+                        <div>
+                            <div class="font-black text-xl">4.9★</div>
+                            <div class="text-sm opacity-90">+2.847 Avaliações</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center text-white bg-white/20 px-6 py-4 rounded-2xl backdrop-blur-sm border border-white/30 scale-hover">
+                        <i data-lucide="users" class="text-accent mr-3 animate-pulse" style="width: 24px; height: 24px;"></i>
+                        <div>
+                            <div class="font-black text-xl">5.247</div>
+                            <div class="text-sm opacity-90">Alunas Ativas</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center text-white bg-white/20 px-6 py-4 rounded-2xl backdrop-blur-sm border border-white/30 scale-hover">
+                        <i data-lucide="trending-up" class="text-accent mr-3 animate-pulse" style="width: 24px; height: 24px;"></i>
+                        <div>
+                            <div class="font-black text-xl">R$ 187k</div>
+                            <div class="text-sm opacity-90">Faturado Este Mês</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="space-y-6 mb-16">
+                    <button onclick="scrollToVideo()" class="inline-block bg-white text-primary font-black text-2xl px-12 py-6 rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 glow scale-hover animate-pulse-fast" data-testid="hero-cta">
+                        <i data-lucide="play" class="inline mr-3 animate-bounce" style="width: 28px; height: 28px;"></i>
+                        🎥 ASSISTIR VÍDEO AGORA
+                    </button>
+                    
+                    <div class="text-white/90 text-sm">
+                        ⚡ <strong>ATENÇÃO:</strong> Vídeo disponível por tempo limitado!
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
+            <i data-lucide="chevron-down" style="width: 32px; height: 32px;"></i>
+        </div>
+    </section>
+
+    <!-- Authority Section -->
+    <section class="py-16 bg-gradient-to-r from-white to-muted border-t-4 border-primary">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 gradient-text animate-fadeIn">
+                    🏆 Método Validado & Comprovado
+                </h2>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto items-center opacity-70">
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl mx-auto mb-3 flex items-center justify-center text-white font-bold text-lg">📊</div>
+                    <p class="text-sm font-semibold">Resultados Comprovados</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-r from-red-500 to-red-600 rounded-xl mx-auto mb-3 flex items-center justify-center text-white font-bold text-lg">📈</div>
+                    <p class="text-sm font-semibold">Crescimento Garantido</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl mx-auto mb-3 flex items-center justify-center text-white font-bold text-lg">👥</div>
+                    <p class="text-sm font-semibold">Comunidade Ativa</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-r from-green-500 to-green-600 rounded-xl mx-auto mb-3 flex items-center justify-center text-white font-bold text-lg">⭐</div>
+                    <p class="text-sm font-semibold">Excelência Reconhecida</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section id="video" class="py-20 bg-gradient-to-br from-muted to-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="mb-8">
+                    <div class="inline-flex items-center bg-destructive text-white px-6 py-3 rounded-full font-bold mb-6 animate-bounceIn">
+                        <i data-lucide="timer" class="mr-2" style="width: 20px; height: 20px;"></i>
+                        <span>🔥 VÍDEO EXCLUSIVO - DISPONÍVEL POR TEMPO LIMITADO</span>
+                        <i data-lucide="timer" class="ml-2" style="width: 20px; height: 20px;"></i>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-black mb-4 gradient-text">
+                        👀 Veja Como Maria Faturou R$ 8.347
+                    </h2>
+                    <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+                        Em apenas 45 dias vendendo brigadeiros gourmet na porta de casa
+                    </p>
+                </div>
+                
+                <div class="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl mb-8">
+                    <iframe 
+                        src="https://www.youtube.com/embed/EwJ2IfHfMU8" 
+                        title="Confeitaria Lucrativa - Curso Completo"
+                        class="absolute inset-0 w-full h-full"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        data-testid="youtube-video">
+                    </iframe>
+                </div>
+                
+                <div class="space-y-6">
+                    <div class="bg-gradient-to-r from-green-50 to-green-100 border-2 border-green-200 p-6 rounded-2xl max-w-2xl mx-auto">
+                        <div class="flex items-center justify-center mb-4">
+                            <i data-lucide="check-circle" class="text-green-600 mr-2" style="width: 24px; height: 24px;"></i>
+                            <span class="text-green-800 font-bold text-lg">GARANTIA EXCLUSIVA:</span>
+                        </div>
+                        <p class="text-green-700 text-center">
+                            Se em 7 dias você não conseguir fazer sua primeira venda, 
+                            <strong> devolvemos 100% do seu dinheiro!</strong>
+                        </p>
+                    </div>
+                    
+                    <button onclick="scrollToOffer()" class="inline-block bg-gradient-to-r from-primary to-secondary text-white font-black text-2xl px-16 py-6 rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 animate-pulse-fast glow" data-testid="video-cta">
+                        <i data-lucide="rocket" class="inline mr-3 animate-bounce" style="width: 28px; height: 28px;"></i>
+                        🚀 QUERO COMEÇAR AGORA!
+                    </button>
+                    
+                    <p class="text-sm text-muted-foreground">
+                        ⚡ Últimas 47 vagas disponíveis • Oferta expira em breve
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Content Section -->
+    <section class="py-20 bg-gradient-to-br from-white to-muted">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <div class="inline-flex items-center bg-primary text-white px-6 py-3 rounded-full font-bold mb-6 animate-bounceIn">
+                    <i data-lucide="badge-check" class="mr-2" style="width: 20px; height: 20px;"></i>
+                    <span>✅ MÉTODO VALIDADO E TESTADO</span>
+                    <i data-lucide="badge-check" class="ml-2" style="width: 20px; height: 20px;"></i>
+                </div>
+                <h2 class="text-4xl md:text-6xl font-black mb-6 gradient-text">
+                    💎 O Arsenal Completo de Receitas
+                </h2>
+                <p class="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto font-semibold">
+                    <strong class="text-primary">10 apostilas exclusivas</strong> com receitas que 
+                    <span class="text-destructive underline">mudaram a vida de centenas</span> 
+                    de mulheres em todo o Brasil! 🇧🇷
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto" id="course-modules">
+                <!-- Course modules will be generated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-20 bg-gradient-to-br from-white to-muted">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center mb-12">
+                <div class="inline-flex items-center bg-primary text-white px-6 py-3 rounded-full font-bold mb-6 animate-bounceIn">
+                    <i data-lucide="crown" class="mr-2" style="width: 20px; height: 20px;"></i>
+                    <span>🏆 DIFERENCIAIS EXCLUSIVOS</span>
+                    <i data-lucide="crown" class="ml-2" style="width: 20px; height: 20px;"></i>
+                </div>
+                <h2 class="text-4xl md:text-6xl font-black mb-6 gradient-text">
+                    🚀 Por Que Somos Líderes no Mercado?
+                </h2>
+                <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+                    Mais de <strong class="text-primary">5.247 mulheres</strong> já escolheram nosso método para transformar suas vidas
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto" id="benefits-section">
+                <!-- Benefits will be generated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-gradient-to-br from-muted to-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-6xl font-black mb-6 gradient-text">
+                    💬 O Que Nossas Alunas Dizem
+                </h2>
+                <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+                    Depoimentos reais de mulheres que transformaram suas vidas com nosso método
+                </p>
+            </div>
+            
+            <div class="relative max-w-4xl mx-auto" id="testimonial-carousel" data-testid="testimonial-carousel">
+                <div class="overflow-hidden rounded-2xl">
+                    <div id="testimonial-track" class="flex transition-transform duration-500 ease-in-out">
+                        <!-- Testimonials will be generated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Carousel Controls -->
+                <button id="testimonial-prev" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all" data-testid="carousel-prev">
+                    <i data-lucide="chevron-left" class="text-primary"></i>
+                </button>
+                <button id="testimonial-next" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all" data-testid="carousel-next">
+                    <i data-lucide="chevron-right" class="text-primary"></i>
+                </button>
+
+                <!-- Dots Indicator -->
+                <div class="flex justify-center mt-6 space-x-2" id="testimonial-dots">
+                    <!-- Dots will be generated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-gradient-to-br from-white to-muted">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl md:text-6xl font-black mb-6 gradient-text">
+                        ❓ Perguntas Frequentes
+                    </h2>
+                    <p class="text-xl text-muted-foreground">
+                        Tire suas dúvidas sobre o curso
+                    </p>
+                </div>
+                
+                <div class="space-y-4" id="faq-section" data-testid="faq-section">
+                    <!-- FAQ items will be generated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offer Section -->
+    <section id="oferta" class="py-20 gradient-bg animate-gradient relative overflow-hidden">
+        <!-- Animated background elements -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-10 left-10 w-32 h-32 bg-white rounded-full floating">💰</div>
+            <div class="absolute bottom-20 right-16 w-24 h-24 bg-white rounded-full floating" style="animation-delay: 2s;">🎆</div>
+            <div class="absolute top-1/2 left-20 w-20 h-20 bg-white rounded-full floating" style="animation-delay: 1s;">✨</div>
+        </div>
+        <div class="container mx-auto px-4">
+            <div class="max-w-5xl mx-auto bg-white rounded-3xl shadow-2xl border-4 border-primary/20 p-8 md:p-12 text-center relative glow">
+                <!-- Floating elements around the offer -->
+                <div class="absolute -top-6 left-1/2 transform -translate-x-1/2">
+                    <div class="bg-destructive text-white px-8 py-3 rounded-full font-black text-lg animate-bounce">
+                        🔥 OFERTA RELÂMPAGO!
+                    </div>
+                </div>
+                <div class="mb-8 mt-8">
+                    <div class="flex items-center justify-center space-x-4 mb-6">
+                        <div class="bg-gradient-to-r from-destructive to-red-600 text-white px-6 py-3 rounded-full text-sm font-bold uppercase tracking-wide animate-pulse">
+                            ⚡ ÚLTIMAS 47 VAGAS
+                        </div>
+                        <div class="bg-gradient-to-r from-green-500 to-green-600 text-white px-6 py-3 rounded-full text-sm font-bold uppercase tracking-wide">
+                            🛡️ GARANTIA 7 DIAS
+                        </div>
+                    </div>
+                </div>
+                
+                <h2 class="text-5xl md:text-7xl font-black mb-6 gradient-text animate-gradient">
+                    🏆 CONFEITARIA LUCRATIVA
+                </h2>
+                
+                <div class="bg-gradient-to-r from-yellow-100 to-yellow-200 border-2 border-yellow-300 p-6 rounded-2xl mb-8">
+                    <h3 class="text-2xl font-black text-yellow-800 mb-2">
+                        🎉 PROMOÇÃO DE LANÇAMENTO!
+                    </h3>
+                    <p class="text-yellow-700 text-lg">
+                        Apenas para as <strong>primeiras 17 clientes</strong> que comprarem hoje!
+                    </p>
+                </div>
+                
+                <div class="mb-8">
+                    <p class="text-2xl font-bold text-primary mb-4">
+                        📚 10 Apostilas Completas + Bônus Milionários
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
+                        <div class="bg-gradient-to-r from-green-50 to-green-100 p-4 rounded-xl border border-green-200">
+                            <div class="font-bold text-green-700">🚀 Acesso Imediato</div>
+                            <div class="text-sm text-green-600">Receba tudo agora por email</div>
+                        </div>
+                        <div class="bg-gradient-to-r from-blue-50 to-blue-100 p-4 rounded-xl border border-blue-200">
+                            <div class="font-bold text-blue-700">💎 Suporte Vitalício</div>
+                            <div class="text-sm text-blue-600">Comunidade exclusiva 24/7</div>
+                        </div>
+                        <div class="bg-gradient-to-r from-purple-50 to-purple-100 p-4 rounded-xl border border-purple-200">
+                            <div class="font-bold text-purple-700">🎁 Bônus Exclusivos</div>
+                            <div class="text-sm text-purple-600">Calculadora de lucros + muito mais</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Countdown Timer -->
+                <div class="bg-destructive text-white p-6 rounded-2xl mb-8" id="countdown-timer" data-testid="countdown-timer">
+                    <h3 class="text-lg font-bold mb-4">⏰ OFERTA EXPIRA EM:</h3>
+                    <div class="flex justify-center space-x-4 text-2xl md:text-3xl font-black">
+                        <div class="text-center">
+                            <div class="bg-white text-destructive rounded-lg px-3 py-2" id="countdown-hours" data-testid="countdown-hours">23</div>
+                            <div class="text-sm mt-1">HORAS</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="bg-white text-destructive rounded-lg px-3 py-2" id="countdown-minutes" data-testid="countdown-minutes">59</div>
+                            <div class="text-sm mt-1">MIN</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="bg-white text-destructive rounded-lg px-3 py-2" id="countdown-seconds" data-testid="countdown-seconds">59</div>
+                            <div class="text-sm mt-1">SEG</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-8">
+                    <div class="flex items-center justify-center space-x-8 mb-6">
+                        <div class="text-center">
+                            <div class="text-3xl font-black text-gray-400 line-through">R$ 497</div>
+                            <div class="text-sm text-gray-500">Preço Normal</div>
+                        </div>
+                        <div class="text-6xl font-black text-primary animate-pulse">
+                            R$ 9,90
+                        </div>
+                        <div class="text-center">
+                            <div class="bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-bold">
+                                💰 98% de Desconto
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p class="text-lg text-gray-600 mb-6">
+                        💳 <strong>12x de R$ 0,82</strong> no cartão ou <strong>R$ 9,90 à vista</strong> no PIX
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <button onclick="comprarAgora()" class="w-full bg-gradient-to-r from-primary to-secondary text-white font-black text-3xl py-6 px-8 rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 animate-pulse-fast glow">
+                            <i data-lucide="credit-card" class="inline mr-3" style="width: 32px; height: 32px;"></i>
+                            💳 COMPRAR AGORA - R$ 9,90
+                        </button>
+                        
+                        <button onclick="comprarPix()" class="w-full bg-gradient-to-r from-green-500 to-green-600 text-white font-black text-2xl py-5 px-8 rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105">
+                            📱 PAGAR NO PIX - R$ 9,90
+                        </button>
+                    </div>
+                    
+                    <div class="flex items-center justify-center space-x-4 mt-6 text-sm text-gray-600">
+                        <div class="flex items-center">
+                            <i data-lucide="shield" class="mr-1" style="width: 16px; height: 16px;"></i>
+                            <span>Compra 100% Segura</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i data-lucide="lock" class="mr-1" style="width: 16px; height: 16px;"></i>
+                            <span>Dados Protegidos</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i data-lucide="infinity" class="mr-1" style="width: 16px; height: 16px;"></i>
+                            <span>Acesso Vitalício</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4 text-center">
+            <h3 class="text-2xl font-bold mb-4">🏆 Confeitaria Lucrativa</h3>
+            <p class="text-gray-400 mb-4">
+                Transformamos sonhos em realidade através da confeitaria
+            </p>
+            <div class="text-sm text-gray-500">
+                <p>© 2024 Confeitaria Lucrativa. Todos os direitos reservados.</p>
+                <p class="mt-2">Este site não está afiliado ao Facebook, Instagram ou qualquer outra rede social.</p>
+                <p>Resultados não são garantidos e podem variar de pessoa para pessoa.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
